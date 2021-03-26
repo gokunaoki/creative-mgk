@@ -21,7 +21,11 @@ const HomePage = (props) => {
       setPosts((prev) => [...prev, ...response]);
     }, 2000);
   };
-  return <PostsList posts={posts} loadMore={loadMore} hasMore={hasMore} />;
+  return (
+    <>
+      <PostsList posts={posts} loadMore={loadMore} hasMore={hasMore} />
+    </>
+  );
 };
 
 export default HomePage;

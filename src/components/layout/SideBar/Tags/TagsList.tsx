@@ -9,7 +9,7 @@ const ListWrapper = styled.ul<TProps>`
   display: ${(props) => (props.singlePage ? "flex" : "block")};
 `;
 
-const TagsList = ({ tags=null }) => {
+const TagsList = ({ tags = null }) => {
   let tagsArr = [
     {
       name: "React",
@@ -45,6 +45,7 @@ const TagsList = ({ tags=null }) => {
       bg={tag.backgroundColor}
       color={tag.color}
       singlePage={tags}
+      key={tag.name}
     >
       {tag.name}
     </Tag>

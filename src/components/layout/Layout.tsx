@@ -14,7 +14,6 @@ const Home = styled.div`
 `;
 const Container = styled.div`
   width: 90%;
-  height: 100%;
   max-width: 1000px;
   margin: 0 auto;
   display: flex;
@@ -23,7 +22,9 @@ const Container = styled.div`
 
 const PageArea = styled.main<{ isSingle: boolean }>`
   width: ${({ isSingle }) => (isSingle ? "100%" : "65%")};
-  height: 100%;
+  min-height: calc(100vh - 100px);
+  position: relative;
+  z-index: 1;
   @media only screen and ${breakpoint.device.sm} {
     width: 100%;
   }

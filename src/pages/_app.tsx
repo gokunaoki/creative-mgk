@@ -7,11 +7,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Layout>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap"
-          rel="stylesheet"
-        />
+        <title>Creative MGK</title>
       </Head>
       <Component {...pageProps} />
     </Layout>

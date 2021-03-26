@@ -24,7 +24,15 @@ const PostsList = (props) => {
     // justify-content: space-between;
     flex-wrap: wrap;
   `;
-  const NoContent = styled.p``;
+  const NoContent = styled.p`
+    margin-top: 100px;
+    font-size: 2.5rem;
+
+    // top: 0;
+    // left: 0;
+    // right: 0;
+    // bottom: 0;
+  `;
   const displayPosts =
     props.posts.length != 0 &&
     props.posts.map((item) => <PostItem key={item.sys.id} post={item} />);

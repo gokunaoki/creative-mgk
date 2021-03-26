@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Image from "next/image";
+// import Image from "next/image";
 import Moment from "react-moment";
 const ReactMarkdownWithHtml = require("react-markdown/with-html");
 import { Prism as SyntaxHightlighter } from "react-syntax-highlighter";

@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import Image from "next/image";
+// import Image from "next/image";
 const IntroBox = styled.div`
   margin-bottom: 50px;
 `;
-const ProfileImage = styled(Image)`
+// const ProfileImage = styled(Image)`
+//   border-radius: 50%;
+// `;
+const ProfileImage = styled.img`
   border-radius: 50%;
 `;
 const Name = styled.p`
@@ -44,7 +47,7 @@ const Profile: React.FC = () => {
 
       <Desc>
         <DescP> Frontend Engineer in Tokyo</DescP>
-        <DescP>新卒２年目の2021年4月に,未経験からエンジニア転職。</DescP>
+        <DescP>新卒2年目の2021年4月に,未経験からエンジニア転職。</DescP>
         <DescP>
           主にフロントエンドとジュニアエンジニアとしての経験を発信します。
         </DescP>

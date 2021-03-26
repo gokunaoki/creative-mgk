@@ -2,9 +2,18 @@ import styled from "styled-components";
 import SideBar from "../../../components/layout/SideBar/SideBar";
 import PostDetail from "../../../components/posts/PostDetail";
 import { getAllPosts, getPostBySlug } from "../../../../lib/index";
-
+import Head from "next/head";
+import PostsList from "../../../components/posts/PostsList";
 const PostDetailPage = ({ post }) => {
-  return <PostDetail post={post} />;
+  return (
+    <>
+      <Head>
+        <title>{post.fields.title}</title>
+        <meta name="description" content={post.fields.description || ""} />
+      </Head>
+      <PostDetail post={post} />
+    </>
+  );
 };
 
 export default PostDetailPage;

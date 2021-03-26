@@ -79,7 +79,10 @@ const PostInfo = styled.div`
   margin-bottom: 30px;
   padding-bottom: 40px;
   border-bottom: 1px solid rgb(234, 234, 234);
-  display: flex;
+
+  ul {
+    margin-bottom: 20px;
+  }
   time {
     margin-right: 60px;
   }
@@ -111,8 +114,8 @@ const PostDetail = ({ post }) => {
     <Post>
       <Title>{post.fields.title}</Title>
       <PostInfo>
-        <Moment format="YYYY/MM/DD">{post.fields.date}</Moment>
         <TagsList tags={post.metadata.tags.map((tag) => tag.sys.id)} />
+        <Moment format="YYYY/MM/DD">{post.fields.date}</Moment>
       </PostInfo>
       <StyledMark>
         <ReactMarkdownWithHtml renderers={customRenderers} allowDangerousHtml>

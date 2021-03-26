@@ -30,6 +30,10 @@ const Title = styled.h3`
   color: #696969;
   font-size: 2rem;
   width: 150px;
+  @media only screen and ${breakpoint.device.sm} {
+    font-size: 1.6rem;
+    width: 120px;
+  }
 `;
 
 const Right = styled.div`
@@ -38,7 +42,7 @@ const Right = styled.div`
   justify-content: flex-end;
   width: calc(95% - 150px);
   overflow: scroll;
-  @media only screen and ${breakpoint.device.sm} {
+  @media only screen and ${breakpoint.device.xs} {
     justify-content: flex-start;
   }
 `;
@@ -59,6 +63,12 @@ const NavItem = styled.li`
   }
   a {
     padding: 10px 0;
+  }
+  @media only screen and ${breakpoint.device.sm} {
+    font-size: 1.4rem;
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
   }
 `;
 

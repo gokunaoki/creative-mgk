@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import breakpoint from "../../../common/breakpoint";
 const FooterComponent = styled.footer`
   width: 100%;
   height: 70px;
@@ -17,6 +17,9 @@ const Wrapper = styled.div`
 const CopyRight = styled.p`
   color: #8c8c8c;
   font-size: 1.4rem;
+  @media only screen and ${breakpoint.device.xs} {
+    font-size: 1rem;
+  }
 `;
 const Footer = () => {
   return (

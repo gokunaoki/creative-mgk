@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
 import Moment from "react-moment";
-
+import breakpoint from "../../common/breakpoint";
 const PostItem = ({ post }) => {
   const { title, slug, coverImage, date, category } = post.fields;
 
@@ -22,6 +22,9 @@ const PostItem = ({ post }) => {
     box-shadow: rgb(0 0 0 / 10%) 0px 0px 7px 1px;
     &:not(:nth-child(2n)) {
       margin-right: 5%;
+    }
+    @media only screen and ${breakpoint.device.xs} {
+      width: 100%;
     }
   `;
 

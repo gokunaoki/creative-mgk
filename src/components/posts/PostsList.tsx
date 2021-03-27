@@ -2,36 +2,24 @@ import styled from "styled-components";
 import PostItem from "./PostItem";
 import InfiniteScroll from "react-infinite-scroller";
 import Spinner from "../shared/Spinner";
-// interface Post{
-//   title:string;
-//   subTitle:string;
-//   date:Date;
-
-// interface PostsListProps{
-//   posts:
-// }
+import breakpoint from "../../common/breakpoint";
 
 const PostsList = (props) => {
   const Wrapper = styled.div`
     width: 100%;
     height: 100%;
-    // position: relative;
-    // z-index: 1;
   `;
 
   const Posts = styled.ul`
     display: flex;
-    // justify-content: space-between;
     flex-wrap: wrap;
+    @media only screen and ${breakpoint.device.xs} {
+      display: block;
+    }
   `;
   const NoContent = styled.p`
     margin-top: 100px;
     font-size: 2.5rem;
-
-    // top: 0;
-    // left: 0;
-    // right: 0;
-    // bottom: 0;
   `;
   const displayPosts =
     props.posts.length != 0 &&

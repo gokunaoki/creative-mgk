@@ -42,7 +42,7 @@ const StyledMark = styled.div`
   & > p {
     margin-top: 18px;
     margin-bottom: 25px;
-    line-height: 32px;
+    line-height: 28px;
   }
   & > pre {
     margin-top: 50px !important;

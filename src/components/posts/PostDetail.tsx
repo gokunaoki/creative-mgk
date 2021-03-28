@@ -21,7 +21,7 @@ const StyledMark = styled.div`
   color: rgba(41, 41, 41, 1);
   font-size: 1.8rem;
   & > h3 {
-    font-size: 4rem;
+    font-size: 3rem;
     margin-bottom: 20px;
     margin-top: 40px;
     &:before {
@@ -30,7 +30,7 @@ const StyledMark = styled.div`
     }
   }
   & > h4 {
-    font-size: 3rem;
+    font-size: 2.6rem;
     margin-bottom: 20px;
     margin-top: 40px;
     &:before {
@@ -43,6 +43,13 @@ const StyledMark = styled.div`
     margin-top: 18px;
     margin-bottom: 25px;
     line-height: 28px;
+    & > strong {
+      font-weight: bold;
+      color: rgba(41, 41, 41, 1);
+    }
+  }
+  & > strong {
+    font-weight: bold;
   }
   & > pre {
     margin-top: 50px !important;
@@ -64,12 +71,21 @@ const StyledMark = styled.div`
       margin-right: 20px;
       line-height: 2;
     }
+    & > strong {
+      font-weight: bold;
+      color: rgba(41, 41, 41, 1);
+    }
   }
   & > ol > li {
     &:before {
       counter-increment: item;
       content: counter(item);
       margin-right: 20px;
+      line-height: 2;
+    }
+    & > strong {
+      font-weight: bold;
+      color: rgba(41, 41, 41, 1);
     }
   }
 `;
@@ -87,7 +103,7 @@ const PostInfo = styled.div`
     margin-right: 60px;
   }
 `;
-const PostDetail = ({ post }) => {
+const PostDetail = ({ post, preview }) => {
   const customRenderers = {
     paragraph(paragraph) {
       const { node } = paragraph;
@@ -113,8 +129,18 @@ const PostDetail = ({ post }) => {
   return (
     <Post>
       <Title>{post.fields.title}</Title>
+      {preview && (
+        <a
+          href="/api/exit-preview"
+          className="underline hover:text-cyan duration-200 transition-colors"
+        >
+          Exit
+        </a>
+      )}
       <PostInfo>
-        <TagsList tags={post.metadata.tags.map((tag) => tag.sys.id)} />
+        {post.metadata.tags[0] && (
+          <TagsList tags={post.metadata.tags.map((tag) => tag.sys.id)} />
+        )}
         <Moment format="YYYY/MM/DD">{post.fields.date}</Moment>
       </PostInfo>
       <StyledMark>

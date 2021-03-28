@@ -12,13 +12,13 @@ const ListWrapper = styled.ul<TProps>`
 const TagsList = ({ tags = null }) => {
   let tagsArr = [
     {
-      name: "React",
-      backgroundColor: "#0288d1",
+      name: "Next",
+      backgroundColor: "black",
       color: "white",
     },
     {
-      name: "Next",
-      backgroundColor: "black",
+      name: "React",
+      backgroundColor: "#0288d1",
       color: "white",
     },
     {

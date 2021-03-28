@@ -7,7 +7,12 @@ const PostItem = ({ post }) => {
 
   const { tags } = post.metadata;
 
-  const tagName = tags[0] ? tags[tags.length - 1].sys.id : "react;";
+  //tag表示の優先順位
+  const tagsOrder = ["next", "react", "javascript", "algorithm"];
+  const displayTagNum = tagsOrder.findIndex((tagName) =>
+    tags.some((tag) => tagName == tag.sys.id)
+  );
+  const tagName = tags[0] ? tagsOrder[displayTagNum] : null;
 
   const categoryName =
     category.fields.name === "asEngineer"
@@ -83,7 +88,7 @@ const PostItem = ({ post }) => {
         <Inner>
           <ImageWrapper src={imagePath}>
             <CoverContent>
-              <ContentTag>{tagName}</ContentTag>
+              {tagName && <ContentTag>{tagName}</ContentTag>}
             </CoverContent>
           </ImageWrapper>
 

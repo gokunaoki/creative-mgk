@@ -16,18 +16,38 @@ export async function getAllPosts(skipLength: number) {
   }
 }
 
-export async function getPostBySlug(slug) {
-  const entries = await client.getEntries({
-    content_type: "post",
+export async function getPostBySlug(slug, preview = false) {
+  if (preview) {
+    const previewClient = Contentful.createClient({
+      space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+      accessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN,
+      host: "preview.contentful.com",
+    });
+    const entries = await previewClient.getEntries({
+      content_type: "post",
 
-    // 取得データの数
-    limit: 1,
+      // 取得データの数
+      limit: 1,
 
-    // slugの値が引数slugと等しいpostを取得
-    "fields.slug[in]": slug,
-  });
-  if (entries.items) {
-    return entries.items[0];
+      // slugの値が引数slugと等しいpostを取得
+      "fields.slug[in]": slug,
+    });
+    if (entries.items) {
+      return entries.items[0];
+    }
+  } else {
+    const entries = await client.getEntries({
+      content_type: "post",
+
+      // 取得データの数
+      limit: 1,
+
+      // slugの値が引数slugと等しいpostを取得
+      "fields.slug[in]": slug,
+    });
+    if (entries.items) {
+      return entries.items[0];
+    }
   }
 }
 
@@ -59,3 +79,5 @@ export async function getPostsByTag(skipLength: number, tag: string) {
     return entries.items;
   }
 }
+
+export async function getPreviewPostBySlug() {}

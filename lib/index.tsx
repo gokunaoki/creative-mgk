@@ -32,7 +32,8 @@ export async function getPostBySlug(slug) {
 }
 
 export async function getPostsByCategory(skipLength: number, category: string) {
-  const categoryName = category === "as-engineer" ? "asEngineer" : category;
+  // const categoryName = category === "as-engineer" ? "asEngineer" : category;
+  const categoryName = category;
   const entries = await client.getEntries({
     content_type: "post",
     "fields.category.sys.contentType.sys.id": "category", // ←これも必要

@@ -78,6 +78,13 @@ const SearchInput = styled.div`
   border: 1px solid #696969;
   border-radius: 30px;
 `;
+
+const NavItems = [
+  { link: "/posts/code", name: "CODE" },
+  { link: "/posts/career", name: "CAREER" },
+  { link: "/posts/life", name: "LIFE" },
+  { link: "/about", name: "ABOUT" },
+];
 const MainNav: React.FC = () => {
   return (
     <Navigation>
@@ -90,18 +97,11 @@ const MainNav: React.FC = () => {
 
         <Right>
           <NavList>
-            <NavItem>
-              <Button link="/posts/code">CODE</Button>
-            </NavItem>
-            <NavItem>
-              <Button link="/posts/as-engineer">AS ENGINEER</Button>
-            </NavItem>
-            <NavItem>
-              <Button link="/posts/life">LIFE</Button>
-            </NavItem>
-            <NavItem>
-              <Button link="/about">ABOUT</Button>
-            </NavItem>
+            {NavItems.map((item) => (
+              <NavItem>
+                <Button link={item.link}>{item.name}</Button>
+              </NavItem>
+            ))}
           </NavList>
         </Right>
       </Wrapper>

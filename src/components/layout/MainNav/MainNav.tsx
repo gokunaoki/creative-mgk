@@ -25,11 +25,17 @@ const Wrapper = styled.div`
 
 const Left = styled.div`
   margin-right: 50px;
+  @media only screen and ${breakpoint.device.xs} {
+    margin-right: 20px;
+  }
 `;
 const Title = styled.h3`
-  color: #696969;
   font-size: 2rem;
   width: 150px;
+  a {
+    color: black;
+    font-weight: bold;
+  }
   @media only screen and ${breakpoint.device.sm} {
     font-size: 1.6rem;
     width: 120px;
@@ -44,6 +50,7 @@ const Right = styled.div`
   overflow: scroll;
   @media only screen and ${breakpoint.device.xs} {
     justify-content: flex-start;
+    width: 100%;
   }
 `;
 

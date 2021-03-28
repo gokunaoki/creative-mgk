@@ -68,7 +68,7 @@ export async function getStaticProps(context) {
 export function getStaticPaths() {
   const categories = ["code", "career", "life"];
   const paths = categories.map((item) => ({ params: { category: item } }));
-  console.log(paths);
+ 
   return {
     paths: paths,
     fallback: false,

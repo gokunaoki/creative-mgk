@@ -6,7 +6,7 @@ import useScroll from "../hooks/scroll-loading";
 
 const HomePage = (props) => {
   const [posts, setPosts] = useState(props.posts);
-  const [hasMore, setHasMore] = useState(true);
+  const [hasMore, setHasMore] = useState(props.posts.length > 6);
   const { scrollFetchedData } = useScroll();
 
   const loadMore = () => {

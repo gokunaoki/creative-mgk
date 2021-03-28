@@ -109,7 +109,7 @@ const PostDetail = ({ post, preview }) => {
       const { node } = paragraph;
       if (node.children[0].type === "image") {
         const image = node.children[0];
-        console.log(image.url);
+
         return <img src={`https:${image.url}`} alt={image.alt} />;
       }
       return <p>{paragraph.children}</p>;

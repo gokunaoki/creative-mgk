@@ -58,7 +58,6 @@ export async function getStaticProps(context) {
   const { params } = context;
   const { tag } = params;
   const posts = await getPostsByTag(0, tag);
-  console.log(posts);
 
   return {
     props: {
@@ -70,7 +69,7 @@ export async function getStaticProps(context) {
 export function getStaticPaths() {
   const tags = ["react", "next", "javascript", "algorithm"];
   const paths = tags.map((item) => ({ params: { tag: item } }));
-  console.log(paths);
+
   return {
     paths: paths,
     fallback: false,

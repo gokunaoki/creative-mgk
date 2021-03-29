@@ -20,6 +20,7 @@ const Title = styled.h3`
 const StyledMark = styled.div`
   color: rgba(41, 41, 41, 1);
   font-size: 1.8rem;
+  letter-spacing: 1px;
   & > h3 {
     font-size: 3rem;
     margin-bottom: 20px;
@@ -30,7 +31,7 @@ const StyledMark = styled.div`
     }
   }
   & > h4 {
-    font-size: 2.6rem;
+    font-size: 2.4rem;
     margin-bottom: 20px;
     margin-top: 40px;
     &:before {
@@ -46,6 +47,10 @@ const StyledMark = styled.div`
     & > strong {
       font-weight: bold;
       color: rgba(41, 41, 41, 1);
+    }
+    & > a {
+      color: #0097a7;
+      font-weight: bold;
     }
   }
   & > strong {
@@ -75,6 +80,10 @@ const StyledMark = styled.div`
       font-weight: bold;
       color: rgba(41, 41, 41, 1);
     }
+    & > a {
+      color: #0097a7;
+      font-weight: bold;
+    }
   }
   & > ol > li {
     &:before {
@@ -86,6 +95,10 @@ const StyledMark = styled.div`
     & > strong {
       font-weight: bold;
       color: rgba(41, 41, 41, 1);
+    }
+    & > a {
+      color: #0097a7;
+      font-weight: bold;
     }
   }
 `;

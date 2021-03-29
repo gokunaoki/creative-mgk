@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Head from "../components/head";
 import PostsList from "../components/posts/PostsList";
 import { getAllPosts } from "../../lib/index";
 import { useState } from "react";
@@ -23,6 +23,12 @@ const HomePage = (props) => {
   };
   return (
     <>
+      <Head
+        title="Creative MGK"
+        description="フロントエンドに関するプログラミングやエンジニアとしての実務経験を発信します"
+        url="https://creativemgk.com/"
+        image="https://images.ctfassets.net/68ugjdsn6k9b/3JUtW9MUASCvw84IIwM8kS/b5e2a84ef850f09d5fe5162c22d601ad/Abstract_5.png?h=250"
+      />
       <PostsList posts={posts} loadMore={loadMore} hasMore={hasMore} />
     </>
   );

@@ -2,15 +2,24 @@ import styled from "styled-components";
 import SideBar from "../../../components/layout/SideBar/SideBar";
 import PostDetail from "../../../components/posts/PostDetail";
 import { getAllPosts, getPostBySlug } from "../../../../lib/index";
-import Head from "next/head";
+import Head from "../../../components/head";
 import PostsList from "../../../components/posts/PostsList";
+import { useRouter } from "next/router";
 const PostDetailPage = ({ post, preview }) => {
+  const router = useRouter();
+
   return (
     <>
-      <Head>
+      <Head
+        title={`${post.fields.title} | Creative MGK`}
+        description={post.fields.description}
+        url={`https://creativemgk.com/posts/${router.query.category}/${router.query.slug}`}
+        image={`https:${post.fields.coverImage.fields.file.url}`}
+      />
+      {/* <Head>
         <title>{post.fields.title}</title>
         <meta name="description" content={post.fields.description || ""} />
-      </Head>
+      </Head> */}
       <PostDetail post={post} preview={preview} />
     </>
   );

@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Head from "../../../components/head";
 import styled from "styled-components";
 import SideBar from "../../../components/layout/SideBar/SideBar";
 import PostsList from "../../../components/posts/PostsList";
@@ -46,6 +46,12 @@ const CategoryPage = (props) => {
 
   return (
     <>
+      <Head
+        title={`${router.query.tag} | Creative MGK`}
+        description="フロントエンドに関するプログラミングやエンジニアとしての実務経験を発信します"
+        url={`https://creativemgk.com/${router.query.tag}`}
+        image="https://images.ctfassets.net/68ugjdsn6k9b/3JUtW9MUASCvw84IIwM8kS/b5e2a84ef850f09d5fe5162c22d601ad/Abstract_5.png?h=250"
+      />
       <TagName>{`#${router.query.tag}`}</TagName>
       <PostsList posts={posts} loadMore={loadMore} hasMore={hasMore} />
     </>

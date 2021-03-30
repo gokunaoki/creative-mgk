@@ -12,6 +12,10 @@ export default ({ title, description, image, url }: Props): JSX.Element => {
   return (
     <Head>
       <title>{title}</title>
+      <meta
+        name="google-site-verification"
+        content="2AXMzgPbiD9qnfYr3vRBC_PPyYhx1xnmNnOq8LKXvvE"
+      />
       <meta name="description" content={description} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />

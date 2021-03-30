@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://creativemgk.com
+
+# Sitemaps
+Sitemap: https://creativemgk.com/sitemap.xml
+Sitemap: https://creativemgk.com/server-sitemap.xml

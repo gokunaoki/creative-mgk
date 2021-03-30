@@ -7,7 +7,7 @@ import PostsList from "../../../components/posts/PostsList";
 import { useRouter } from "next/router";
 const PostDetailPage = ({ post, preview }) => {
   const router = useRouter();
-
+  // debugger;
   return (
     <>
       <Head

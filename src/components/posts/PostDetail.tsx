@@ -21,6 +21,7 @@ const StyledMark = styled.div`
   color: rgba(41, 41, 41, 1);
   font-size: 1.8rem;
   letter-spacing: 1px;
+
   & > h3 {
     font-size: 3rem;
     margin-bottom: 20px;
@@ -51,6 +52,9 @@ const StyledMark = styled.div`
     & > a {
       color: #0097a7;
       font-weight: bold;
+    }
+    & > span {
+      color: #f06292;
     }
   }
   & > strong {

@@ -30,7 +30,7 @@ export async function getPostBySlug(slug, preview = false) {
       limit: 1,
 
       // slugの値が引数slugと等しいpostを取得
-      "fields.slug[in]": slug,
+      "fields.slug": slug,
     });
     if (entries.items) {
       return entries.items[0];
@@ -43,7 +43,8 @@ export async function getPostBySlug(slug, preview = false) {
       limit: 1,
 
       // slugの値が引数slugと等しいpostを取得
-      "fields.slug[in]": slug,
+      // "fields.slug[in]": slug,
+      "fields.slug": slug,
     });
     if (entries.items) {
       return entries.items[0];

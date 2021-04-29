@@ -11,8 +11,10 @@ const Wrapper = styled.div`
   max-width: 1000px;
   margin: 0 auto;
   display: flex;
-
   align-items: center;
+   @media only screen and ${breakpoint.device.lg} {
+    max-width: 1200px;
+  }
 `;
 const CopyRight = styled.p`
   color: #8c8c8c;

@@ -21,6 +21,9 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+   @media only screen and ${breakpoint.device.lg} {
+    max-width: 1200px;
+  }
 `;
 
 const Left = styled.div`

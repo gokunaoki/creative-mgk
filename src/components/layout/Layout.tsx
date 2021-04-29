@@ -8,7 +8,6 @@ import breakpoint from "../../common/breakpoint";
 const Home = styled.div`
   width: 100%;
   min-height: 100vh;
-  //header50px
   padding-top: 100px;
   padding-bottom: 30px;
 `;
@@ -18,6 +17,9 @@ const Container = styled.div`
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+   @media only screen and ${breakpoint.device.lg} {
+    max-width: 1200px;
+  }
 `;
 
 const PageArea = styled.main<{ isSingle: boolean }>`

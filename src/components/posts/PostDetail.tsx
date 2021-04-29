@@ -15,6 +15,7 @@ const Post = styled.article`
 const Title = styled.h3`
   font-size: 3rem;
   margin-bottom: 30px;
+  overflow-wrap: break-word;
 `;
 
 const StyledMark = styled.div`

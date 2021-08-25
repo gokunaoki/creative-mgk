@@ -1,5 +1,20 @@
 import styled from "styled-components";
 import breakpoint from "../../../common/breakpoint";
+
+const Footer = () => {
+  return (
+    <FooterComponent>
+      <Wrapper>
+        <CopyRight>
+          Copyright @ 2021 Creative MGK. All rights reserved.
+        </CopyRight>
+      </Wrapper>
+    </FooterComponent>
+  );
+};
+
+export default Footer;
+
 const FooterComponent = styled.footer`
   width: 100%;
   height: 70px;
@@ -23,16 +38,3 @@ const CopyRight = styled.p`
     font-size: 1rem;
   }
 `;
-const Footer = () => {
-  return (
-    <FooterComponent>
-      <Wrapper>
-        <CopyRight>
-          Copyright @ 2021 Creative MGK. All rights reserved.
-        </CopyRight>
-      </Wrapper>
-    </FooterComponent>
-  );
-};
-
-export default Footer;

@@ -5,6 +5,34 @@ import styled from "styled-components";
 import SideBar from "./SideBar/SideBar";
 import { useRouter } from "next/router";
 import breakpoint from "../../common/breakpoint";
+
+const Layout: React.FC = (props) => {
+  const route = useRouter();
+  const currentPath = route.pathname;
+  //isSingle時はsideBar非表示かつmainを100%に
+
+  const isSingle = currentPath == "/about";
+  return (
+    <>
+      {/* <MainHeader /> */}
+      <MainNav />
+      <Home>
+        <Container>
+          {!isSingle && (
+            <SideArea>
+              <SideBar />
+            </SideArea>
+          )}
+          <PageArea isSingle={isSingle}>{props.children}</PageArea>
+        </Container>
+      </Home>
+      <Footer />
+    </>
+  );
+};
+
+export default Layout;
+
 const Home = styled.div`
   width: 100%;
   min-height: 100vh;
@@ -39,29 +67,3 @@ const SideArea = styled.aside`
     display: none;
   }
 `;
-const Layout: React.FC = (props) => {
-  const route = useRouter();
-  const currentPath = route.pathname;
-  //isSingle時はsideBar非表示かつmainを100%に
-
-  const isSingle = currentPath == "/about";
-  return (
-    <>
-      {/* <MainHeader /> */}
-      <MainNav />
-      <Home>
-        <Container>
-          {!isSingle && (
-            <SideArea>
-              <SideBar />
-            </SideArea>
-          )}
-          <PageArea isSingle={isSingle}>{props.children}</PageArea>
-        </Container>
-      </Home>
-      <Footer />
-    </>
-  );
-};
-
-export default Layout;

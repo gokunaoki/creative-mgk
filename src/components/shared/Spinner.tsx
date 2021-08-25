@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+
+
+const Spinner = () => {
+  return <Spin></Spin>;
+};
+
+export default Spinner;
+
 const Spin = styled.div`
   color: black;
   font-size: 0.4rem;
@@ -87,9 +95,3 @@ const Spin = styled.div`
     }
   }
 `;
-
-const Spinner = () => {
-  return <Spin></Spin>;
-};
-
-export default Spinner;

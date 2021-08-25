@@ -3,6 +3,40 @@ import styled from "styled-components";
 import Button from "../../shared/Button";
 import breakpoint from "../../../common/breakpoint";
 
+
+
+const NavItems = [
+  { link: "/posts/code", name: "CODE" },
+  { link: "/posts/career", name: "CAREER" },
+  { link: "/posts/life", name: "LIFE" },
+  { link: "/about", name: "ABOUT" },
+];
+const MainNav: React.FC = () => {
+  return (
+    <Navigation>
+      <Wrapper>
+        <Left>
+          <Title>
+            <Button link="/">Creative MGK</Button>
+          </Title>
+        </Left>
+
+        <Right>
+          <NavList>
+            {NavItems.map((item) => (
+              <NavItem>
+                <Button link={item.link}>{item.name}</Button>
+              </NavItem>
+            ))}
+          </NavList>
+        </Right>
+      </Wrapper>
+    </Navigation>
+  );
+};
+
+export default MainNav;
+
 const Navigation = styled.nav`
   width: 100%;
   height: 50px;
@@ -88,35 +122,3 @@ const SearchInput = styled.div`
   border: 1px solid #696969;
   border-radius: 30px;
 `;
-
-const NavItems = [
-  { link: "/posts/code", name: "CODE" },
-  { link: "/posts/career", name: "CAREER" },
-  { link: "/posts/life", name: "LIFE" },
-  { link: "/about", name: "ABOUT" },
-];
-const MainNav: React.FC = () => {
-  return (
-    <Navigation>
-      <Wrapper>
-        <Left>
-          <Title>
-            <Button link="/">Creative MGK</Button>
-          </Title>
-        </Left>
-
-        <Right>
-          <NavList>
-            {NavItems.map((item) => (
-              <NavItem>
-                <Button link={item.link}>{item.name}</Button>
-              </NavItem>
-            ))}
-          </NavList>
-        </Right>
-      </Wrapper>
-    </Navigation>
-  );
-};
-
-export default MainNav;

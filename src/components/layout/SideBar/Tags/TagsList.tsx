@@ -5,10 +5,6 @@ interface TProps {
   singlePage: boolean;
 }
 
-const ListWrapper = styled.ul<TProps>`
-  display: ${(props) => (props.singlePage ? "flex" : "block")};
-`;
-
 const TagsList = ({ tags = null }) => {
   let tagsArr = [
     {
@@ -54,3 +50,7 @@ const TagsList = ({ tags = null }) => {
 };
 
 export default TagsList;
+
+const ListWrapper = styled.ul<TProps>`
+  display: ${(props) => (props.singlePage ? "flex" : "block")};
+`;

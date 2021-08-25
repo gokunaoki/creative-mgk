@@ -8,10 +8,7 @@ import useScroll from "../../../hooks/scroll-loading";
 import { useRouter } from "next/router";
 import { route } from "next/dist/next-server/server/router";
 
-const CategoryName = styled.p`
-  font-size: 2rem;
-  margin-bottom: 30px;
-`;
+
 const CategoryPage = (props) => {
   const router = useRouter();
   const [posts, setPosts] = useState(props.posts);
@@ -80,3 +77,8 @@ export function getStaticPaths() {
     fallback: false,
   };
 }
+
+const CategoryName = styled.p`
+  font-size: 2rem;
+  margin-bottom: 30px;
+`;

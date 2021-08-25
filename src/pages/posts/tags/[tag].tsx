@@ -7,10 +7,6 @@ import { useState, useEffect } from "react";
 import useScroll from "../../../hooks/scroll-loading";
 import { useRouter } from "next/router";
 
-const TagName = styled.p`
-  font-size: 2rem;
-  margin-bottom: 30px;
-`;
 
 const CategoryPage = (props) => {
   const router = useRouter();
@@ -81,3 +77,8 @@ export function getStaticPaths() {
     fallback: false,
   };
 }
+
+const TagName = styled.p`
+  font-size: 2rem;
+  margin-bottom: 30px;
+`;

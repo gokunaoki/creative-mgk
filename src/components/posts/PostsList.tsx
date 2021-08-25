@@ -5,22 +5,6 @@ import Spinner from "../shared/Spinner";
 import breakpoint from "../../common/breakpoint";
 
 const PostsList = (props) => {
-  const Wrapper = styled.div`
-    width: 100%;
-    height: 100%;
-  `;
-
-  const Posts = styled.ul`
-    display: flex;
-    flex-wrap: wrap;
-    @media only screen and ${breakpoint.device.xs} {
-      display: block;
-    }
-  `;
-  const NoContent = styled.p`
-    margin-top: 100px;
-    font-size: 2.5rem;
-  `;
   const displayPosts =
     props.posts.length != 0 &&
     props.posts.map((item) => <PostItem key={item.sys.id} post={item} />);
@@ -43,3 +27,20 @@ const PostsList = (props) => {
 };
 
 export default PostsList;
+
+const Wrapper = styled.div`
+    width: 100%;
+    height: 100%;
+  `;
+
+  const Posts = styled.ul`
+    display: flex;
+    flex-wrap: wrap;
+    @media only screen and ${breakpoint.device.xs} {
+      display: block;
+    }
+  `;
+  const NoContent = styled.p`
+    margin-top: 100px;
+    font-size: 2.5rem;
+  `;

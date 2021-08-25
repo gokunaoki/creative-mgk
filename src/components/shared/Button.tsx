@@ -5,10 +5,7 @@ interface ButtonProps {
   link?: string;
 }
 
-const LinkButton = styled.a`
-  color: #696969;
-  cursor: pointer;
-`;
+
 const Button: React.FC<ButtonProps> = (props) => {
   if (props.link) {
     return (
@@ -21,3 +18,8 @@ const Button: React.FC<ButtonProps> = (props) => {
 };
 
 export default Button;
+
+const LinkButton = styled.a`
+  color: #696969;
+  cursor: pointer;
+`;

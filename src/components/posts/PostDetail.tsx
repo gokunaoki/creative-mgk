@@ -6,6 +6,58 @@ import { Prism as SyntaxHightlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import TagsList from "../layout/SideBar/Tags/TagsList";
 
+
+const PostDetail = ({ post, preview }) => {
+  const customRenderers = {
+    paragraph(paragraph) {
+      const { node } = paragraph;
+      if (node.children[0].type === "image") {
+        const image = node.children[0];
+
+        return <img src={`https:${image.url}`} alt={image.alt} />;
+      }
+      return <p>{paragraph.children}</p>;
+    },
+    code(code) {
+      const { language, value } = code;
+      return (
+        <SyntaxHightlighter
+          language={language}
+          children={value}
+          style={atomDark}
+        />
+      );
+    },
+  };
+
+  return (
+    <Post>
+      <Title>{post.fields.title}</Title>
+      {preview && (
+        <a
+          href="/api/exit-preview"
+          className="underline hover:text-cyan duration-200 transition-colors"
+        >
+          Exit
+        </a>
+      )}
+      <PostInfo>
+        {post.metadata.tags[0] && (
+          <TagsList tags={post.metadata.tags.map((tag) => tag.sys.id)} />
+        )}
+        <Moment format="YYYY/MM/DD">{post.fields.date}</Moment>
+      </PostInfo>
+      <StyledMark>
+        <ReactMarkdownWithHtml renderers={customRenderers} allowDangerousHtml>
+          {post.fields.content}
+        </ReactMarkdownWithHtml>
+      </StyledMark>
+    </Post>
+  );
+};
+
+export default PostDetail;
+
 const Post = styled.article`
   width: 100%;
   height: 100%;
@@ -45,7 +97,7 @@ const StyledMark = styled.div`
   & > p {
     margin-top: 18px;
     margin-bottom: 25px;
-    line-height: 28px;
+    line-height: 1.8;
     & > strong {
       font-weight: bold;
       color: rgba(41, 41, 41, 1);
@@ -121,53 +173,3 @@ const PostInfo = styled.div`
     margin-right: 60px;
   }
 `;
-const PostDetail = ({ post, preview }) => {
-  const customRenderers = {
-    paragraph(paragraph) {
-      const { node } = paragraph;
-      if (node.children[0].type === "image") {
-        const image = node.children[0];
-
-        return <img src={`https:${image.url}`} alt={image.alt} />;
-      }
-      return <p>{paragraph.children}</p>;
-    },
-    code(code) {
-      const { language, value } = code;
-      return (
-        <SyntaxHightlighter
-          language={language}
-          children={value}
-          style={atomDark}
-        />
-      );
-    },
-  };
-
-  return (
-    <Post>
-      <Title>{post.fields.title}</Title>
-      {preview && (
-        <a
-          href="/api/exit-preview"
-          className="underline hover:text-cyan duration-200 transition-colors"
-        >
-          Exit
-        </a>
-      )}
-      <PostInfo>
-        {post.metadata.tags[0] && (
-          <TagsList tags={post.metadata.tags.map((tag) => tag.sys.id)} />
-        )}
-        <Moment format="YYYY/MM/DD">{post.fields.date}</Moment>
-      </PostInfo>
-      <StyledMark>
-        <ReactMarkdownWithHtml renderers={customRenderers} allowDangerousHtml>
-          {post.fields.content}
-        </ReactMarkdownWithHtml>
-      </StyledMark>
-    </Post>
-  );
-};
-
-export default PostDetail;

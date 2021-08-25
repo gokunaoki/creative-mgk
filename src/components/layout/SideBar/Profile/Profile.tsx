@@ -1,6 +1,29 @@
 import React from "react";
 import styled from "styled-components";
 // import Image from "next/image";
+
+
+const Profile: React.FC = () => {
+  return (
+    <IntroBox>
+      <ProfileImage src="/images/mgk.jpg" width={100} height={100} />
+      <Name>
+        Mgk<span>age23</span>
+      </Name>
+
+      <Desc>
+        <DescP> Frontend Engineer in Tokyo</DescP>
+        <DescP>新卒2年目の2021年4月に,未経験からエンジニア転職。</DescP>
+        <DescP>
+          主にフロントエンドに関して発信します。
+        </DescP>
+      </Desc>
+    </IntroBox>
+  );
+};
+
+export default Profile;
+
 const IntroBox = styled.div`
   margin-bottom: 50px;
 `;
@@ -36,24 +59,3 @@ const DescP = styled.p`
     text-align: left;
   }
 `;
-
-const Profile: React.FC = () => {
-  return (
-    <IntroBox>
-      <ProfileImage src="/images/mgk.jpg" width={100} height={100} />
-      <Name>
-        Mgk<span>age23</span>
-      </Name>
-
-      <Desc>
-        <DescP> Frontend Engineer in Tokyo</DescP>
-        <DescP>新卒2年目の2021年4月に,未経験からエンジニア転職。</DescP>
-        <DescP>
-          主にフロントエンドとジュニアエンジニアとしての経験を発信します。
-        </DescP>
-      </Desc>
-    </IntroBox>
-  );
-};
-
-export default Profile;

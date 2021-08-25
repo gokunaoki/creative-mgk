@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 // import Image from "next/image";
 import Moment from "react-moment";
 const ReactMarkdownWithHtml = require("react-markdown/with-html");
@@ -31,6 +31,11 @@ const PostDetail = ({ post, preview }) => {
       }
       return (
         <SyntaxHightlighter
+          css={css`
+            code {
+              font-size: 1.3rem;
+            }
+          `}
           language={language}
           children={value}
           style={atomDark}
@@ -81,7 +86,7 @@ const Title = styled.h3`
 
 const StyledMark = styled.div`
   color: rgba(41, 41, 41, 1);
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   letter-spacing: 1px;
 
   & > h3 {

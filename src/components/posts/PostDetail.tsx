@@ -5,7 +5,8 @@ const ReactMarkdownWithHtml = require("react-markdown/with-html");
 import { Prism as SyntaxHightlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import TagsList from "../layout/SideBar/Tags/TagsList";
-
+import Skeleton from "react-loading-skeleton";
+import { TwitterTweetEmbed } from "react-twitter-embed";
 
 const PostDetail = ({ post, preview }) => {
   const customRenderers = {
@@ -20,6 +21,14 @@ const PostDetail = ({ post, preview }) => {
     },
     code(code) {
       const { language, value } = code;
+      if (language === "twitter") {
+        return (
+          <TwitterTweetEmbed
+            tweetId={value}
+            placeholder={<Skeleton height={300} />}
+          />
+        );
+      }
       return (
         <SyntaxHightlighter
           language={language}

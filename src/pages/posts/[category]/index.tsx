@@ -81,4 +81,5 @@ export function getStaticPaths() {
 const CategoryName = styled.p`
   font-size: 2rem;
   margin-bottom: 30px;
+  color:${({theme})=>theme.text};
 `;

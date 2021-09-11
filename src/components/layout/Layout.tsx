@@ -1,32 +1,63 @@
 import Footer from "./Footer/Footer";
 import MainHeader from "./Header/MainHeader";
 import MainNav from "./MainNav/MainNav";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import SideBar from "./SideBar/SideBar";
 import { useRouter } from "next/router";
 import breakpoint from "../../common/breakpoint";
+import { useDarkMode } from "../../hooks/useDarkMode";
+import dynamic from "next/dynamic";
+
+const ColorPick = dynamic(() => import("../shared/ColorPick"));
 
 const Layout: React.FC = (props) => {
+  if (typeof window === "undefined") return null;
+  const [isDarkMode, setIsDarkMode, isLoading] = useDarkMode();
   const route = useRouter();
   const currentPath = route.pathname;
   //isSingle時はsideBar非表示かつmainを100%に
+
+  const light = {
+    background: "white",
+    text:'black',
+    postText:'rgba(41, 41, 41, 1)',
+    box:"white",
+    shadow:'rgb(0 0 0 / 10%) 0px 0px 7px 1px'
+
+  };
+  const dark = {
+    background: "#282c35",
+    text:'#fff',
+    postText:'#fff',
+    box:"#363c48",
+    shadow:'0 2px 15px 0 rgba(26,26,27,0.637)'
+  };
+  const theme = {
+    light,
+    dark,
+  };
 
   const isSingle = currentPath == "/about";
   return (
     <>
       {/* <MainHeader /> */}
-      <MainNav />
-      <Home>
-        <Container>
-          {!isSingle && (
-            <SideArea>
-              <SideBar />
-            </SideArea>
-          )}
-          <PageArea isSingle={isSingle}>{props.children}</PageArea>
-        </Container>
-      </Home>
-      <Footer />
+      <ThemeProvider theme={isDarkMode?dark:light}>
+        <MainNav />
+        <Home>
+          <StyledColorPickerArea>
+            <ColorPick isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+          </StyledColorPickerArea>
+          <Container>
+            {!isSingle && (
+              <SideArea>
+                <SideBar />
+              </SideArea>
+            )}
+            <PageArea isSingle={isSingle}>{props.children}</PageArea>
+          </Container>
+        </Home>
+        <Footer />
+      </ThemeProvider>
     </>
   );
 };
@@ -36,8 +67,21 @@ export default Layout;
 const Home = styled.div`
   width: 100%;
   min-height: 100vh;
-  padding-top: 100px;
+  padding-top: 50px;
   padding-bottom: 30px;
+  background:${({theme})=>theme.background};
+`;
+
+const StyledColorPickerArea = styled.div`
+  width: 90%;
+  max-width: 1000px;
+  padding: 15px 0 12px 0;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  @media only screen and ${breakpoint.device.lg} {
+    max-width: 1200px;
+  }
 `;
 const Container = styled.div`
   width: 90%;
@@ -45,7 +89,7 @@ const Container = styled.div`
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-   @media only screen and ${breakpoint.device.lg} {
+  @media only screen and ${breakpoint.device.lg} {
     max-width: 1200px;
   }
 `;

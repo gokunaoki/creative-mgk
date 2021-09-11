@@ -46,8 +46,9 @@ const Post = styled.li`
   position: relative;
   width: 47.5%;
   margin-bottom: 5%;
-  background: white;
-  box-shadow: rgb(0 0 0 / 10%) 0px 0px 7px 1px;
+  background-color:${({theme})=>theme.box};
+  box-shadow:${({theme})=>theme.shadow};
+  color:${({theme})=>theme.text};
   &:not(:nth-child(2n)) {
     margin-right: 5%;
   }

@@ -76,16 +76,21 @@ const Post = styled.article`
   width: 100%;
   height: 100%;
   text-align: left;
+  time{
+    color:${({theme})=>theme.text};
+  }
 `;
 
 const Title = styled.h3`
   font-size: 3rem;
   margin-bottom: 30px;
   overflow-wrap: break-word;
+  color:${({theme})=>theme.text};
 `;
 
 const StyledMark = styled.div`
-  color: rgba(41, 41, 41, 1);
+  /* color: rgba(41, 41, 41, 1); */
+  color:${({theme})=>theme.postText};
   font-size: 1.6rem;
   letter-spacing: 1px;
 
@@ -93,6 +98,7 @@ const StyledMark = styled.div`
     font-size: 3rem;
     margin-bottom: 20px;
     margin-top: 40px;
+   
     &:before {
       content: "|";
       margin-right: 5px;
@@ -114,7 +120,8 @@ const StyledMark = styled.div`
     line-height: 1.8;
     & > strong {
       font-weight: bold;
-      color: rgba(41, 41, 41, 1);
+      /* color: rgba(41, 41, 41, 1); */
+      color:${({theme})=>theme.postText};
     }
     & > a {
       color: #0097a7;

@@ -7,6 +7,8 @@ import { ThemeProvider } from "styled-components";
 import * as gtag from "../../utils/gtag";
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
+
+
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   useEffect(() => {
@@ -23,6 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events]);
 
   return (
+    
     <Layout>
       <Component {...pageProps} />
     </Layout>

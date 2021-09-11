@@ -18,7 +18,7 @@ export default Footer;
 const FooterComponent = styled.footer`
   width: 100%;
   height: 70px;
-  background-color: #fafafa;
+  background:${({theme})=>theme.background};
 `;
 const Wrapper = styled.div`
   width: 90%;
@@ -32,7 +32,8 @@ const Wrapper = styled.div`
   }
 `;
 const CopyRight = styled.p`
-  color: #8c8c8c;
+  /* color: #8c8c8c; */
+  color:${({theme})=>theme.text};
   font-size: 1.4rem;
   @media only screen and ${breakpoint.device.xs} {
     font-size: 1rem;

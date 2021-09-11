@@ -8,7 +8,7 @@ const PostsList = (props) => {
   const displayPosts =
     props.posts.length != 0 &&
     props.posts.map((item) => <PostItem key={item.sys.id} post={item} />);
-
+    console.log(props.theme)
   return (
     <Wrapper>
       {props.posts.length != 0 ? (

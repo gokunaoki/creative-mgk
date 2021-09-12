@@ -43,4 +43,5 @@ const Wrapper = styled.div`
   const NoContent = styled.p`
     margin-top: 100px;
     font-size: 2.5rem;
+    color:${({theme})=>theme.text};
   `;

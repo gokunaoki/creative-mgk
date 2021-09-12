@@ -22,9 +22,11 @@ export default about;
 const About = styled.p`
   font-size: 2rem;
   margin-bottom: 30px;
+  color:${({theme})=>theme.text};
 `;
 
 const Coming = styled.p`
   margin-top: 100px;
   font-size: 2.5rem;
+  color:${({theme})=>theme.text};
 `;

@@ -89,29 +89,23 @@ const Title = styled.h3`
 `;
 
 const StyledMark = styled.div`
-  /* color: rgba(41, 41, 41, 1); */
   color:${({theme})=>theme.postText};
   font-size: 1.6rem;
   letter-spacing: 1px;
 
   & > h3 {
     font-size: 3rem;
-    margin-bottom: 20px;
-    margin-top: 40px;
-   
-    &:before {
-      content: "|";
-      margin-right: 5px;
-    }
+    margin-bottom: 28px;
+    margin-top: 58px;
   }
   & > h4 {
     font-size: 2.4rem;
-    margin-bottom: 20px;
-    margin-top: 40px;
-    &:before {
-      content: "|";
-      margin-right: 5px;
-    }
+    margin-bottom: 24px;
+    margin-top: 48px;
+    padding-left:5px;
+    border-width:0 0 0 2px;
+    border-style: solid;
+    border-color:${({theme})=>theme.postText};
   }
 
   & > p {
@@ -120,15 +114,14 @@ const StyledMark = styled.div`
     line-height: 1.8;
     & > strong {
       font-weight: bold;
-      /* color: rgba(41, 41, 41, 1); */
       color:${({theme})=>theme.postText};
     }
     & > a {
-      color: #0097a7;
+      color: #0288d1;
       font-weight: bold;
     }
     & > span {
-      color: #f06292;
+      color: #e040fb;
     }
   }
   & > strong {
@@ -151,15 +144,15 @@ const StyledMark = styled.div`
   & > ul > li {
     &:before {
       content: "-";
-      margin-right: 20px;
+      margin-right: 10px;
       line-height: 2;
     }
     & > strong {
       font-weight: bold;
-      color: rgba(41, 41, 41, 1);
+      color:${({theme})=>theme.postText};
     }
     & > a {
-      color: #0097a7;
+      color: #0288d1;
       font-weight: bold;
     }
   }
@@ -172,10 +165,10 @@ const StyledMark = styled.div`
     }
     & > strong {
       font-weight: bold;
-      color: rgba(41, 41, 41, 1);
+      color:${({theme})=>theme.postText};
     }
     & > a {
-      color: #0097a7;
+      color: #0288d1;
       font-weight: bold;
     }
   }
@@ -184,7 +177,7 @@ const StyledMark = styled.div`
 const PostInfo = styled.div`
   font-size: 1.2rem;
   margin-bottom: 30px;
-  padding-bottom: 40px;
+  padding-bottom: 10px;
   border-bottom: 1px solid rgb(234, 234, 234);
 
   ul {

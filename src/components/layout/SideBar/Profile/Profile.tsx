@@ -13,9 +13,9 @@ const Profile: React.FC = () => {
 
       <Desc>
         <DescP> Frontend Engineer in Tokyo</DescP>
-        {/* <DescP>新卒2年目の2021年4月に未経験からエンジニア転職。</DescP> */}
+        <DescP>新卒2年目の2021年4月に未経験からエンジニアに転職。</DescP>
         <DescP>
-          主にフロントエンドに関して発信します。
+          主にフロントエンドに関して発信しています。
         </DescP>
       </Desc>
     </IntroBox>
@@ -28,9 +28,7 @@ const IntroBox = styled.div`
   margin-bottom: 50px;
   color:${({theme})=>theme.text};
 `;
-// const ProfileImage = styled(Image)`
-//   border-radius: 50%;
-// `;
+
 const ProfileImage = styled.img`
   border-radius: 50%;
 `;
@@ -46,7 +44,6 @@ const Name = styled.p`
 `;
 const Desc = styled.div`
   font-size: 1.2rem;
-  /* color: #696969; */
   width: 90%;
   text-align: justify;
 `;
@@ -55,7 +52,6 @@ const DescP = styled.p`
   letter-spacing: 0.8px;
 
   &:nth-child(1) {
-    /* color: black; */
     margin-bottom: 20px;
     text-align: left;
   }

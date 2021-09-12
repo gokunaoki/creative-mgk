@@ -1,5 +1,5 @@
+import { useState, useEffect } from "react";
 import Footer from "./Footer/Footer";
-import MainHeader from "./Header/MainHeader";
 import MainNav from "./MainNav/MainNav";
 import styled, { ThemeProvider } from "styled-components";
 import SideBar from "./SideBar/SideBar";
@@ -11,42 +11,43 @@ import dynamic from "next/dynamic";
 const ColorPick = dynamic(() => import("../shared/ColorPick"));
 
 const Layout: React.FC = (props) => {
-  if (typeof window === "undefined") return null;
-  const [isDarkMode, setIsDarkMode, isLoading] = useDarkMode();
+  const [isDarkMode, setIsDarkMode] = useDarkMode();
+  const [isLoading, setIsLoading] = useState(true);
   const route = useRouter();
   const currentPath = route.pathname;
   //isSingle時はsideBar非表示かつmainを100%に
 
   const light = {
     background: "white",
-    text:'black',
-    postText:'rgba(41, 41, 41, 1)',
-    box:"white",
-    shadow:'rgb(0 0 0 / 10%) 0px 0px 7px 1px'
-
+    text: "black",
+    postText: "rgba(41, 41, 41, 1)",
+    box: "white",
+    shadow: "rgb(0 0 0 / 10%) 0px 0px 7px 1px",
   };
   const dark = {
     background: "#282c35",
-    text:'#fff',
-    postText:'#fff',
-    box:"#363c48",
-    shadow:'0 2px 15px 0 rgba(26,26,27,0.637)'
-  };
-  const theme = {
-    light,
-    dark,
+    text: "#fff",
+    postText: "#fff",
+    box: "#363c48",
+    shadow: "0 2px 15px 0 rgba(26,26,27,0.637)",
   };
 
+  useEffect(() => {
+    setIsLoading(false);
+  }, []);
+
   const isSingle = currentPath == "/about";
+  if(isLoading)return null
+  
   return (
     <>
-      {/* <MainHeader /> */}
-      <ThemeProvider theme={isDarkMode?dark:light}>
+      <ThemeProvider theme={isDarkMode ? dark : light}>
         <MainNav />
         <Home>
           <StyledColorPickerArea>
             <ColorPick isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
           </StyledColorPickerArea>
+
           <Container>
             {!isSingle && (
               <SideArea>
@@ -69,7 +70,7 @@ const Home = styled.div`
   min-height: 100vh;
   padding-top: 50px;
   padding-bottom: 30px;
-  background:${({theme})=>theme.background};
+  background: ${({ theme }) => theme.background};
 `;
 
 const StyledColorPickerArea = styled.div`

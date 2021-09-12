@@ -3,7 +3,6 @@ import styled, { css } from "styled-components";
 import Toggle from "react-toggle";
 import { GiSun } from "react-icons/gi";
 import { RiMoonFill } from "react-icons/ri";
-import { useDarkMode } from "../../hooks/useDarkMode";
 
 type ColorPickProps={
   isDarkMode:boolean;
@@ -11,10 +10,6 @@ type ColorPickProps={
 }
 const ColorPick:FC<ColorPickProps> = (props) => {
   const {isDarkMode,setIsDarkMode}=props
-  // if (typeof window === "undefined") return null;
-  // const [isDarkMode, seIsDarkMode, isLoading] = useDarkMode();
-  // console.log(isLoading);
-  // // if (isLoading) return null;
   return (
     <StyledToggleWrap>
       <Toggle

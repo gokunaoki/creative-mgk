@@ -10,20 +10,23 @@ import {
 export const useLocalStorage = <T>(
   key: string,
   initialValue?: T
-): [T | undefined, Dispatch<SetStateAction<T | undefined>>, () => void,boolean] => {
+): [
+  T | undefined,
+  Dispatch<SetStateAction<T | undefined>>,
+  () => void,
+  boolean
+] => {
   if (!key) {
     throw new Error("useLocalStorage key may not be falsy");
   }
-
-  
 
   const deserializer = JSON.parse;
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const initializer = useRef((key: string) => {
+   
     try {
       const serializer = JSON.stringify;
-      if (typeof window === "undefined") return;
       const localStorageValue = localStorage.getItem(key);
       if (localStorageValue !== null) {
         return deserializer(localStorageValue);
@@ -36,25 +39,20 @@ export const useLocalStorage = <T>(
       // localStorage can throw. JSON.parse and JSON.stringify
       // can throw, too.
       return initialValue;
-    }finally{
-     setIsLoading(false)
+    } finally {
+      setIsLoading(false);
     }
   });
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [isLoading,setIsLoading]=useState(true)
-  console.log(1)
+  const [isLoading, setIsLoading] = useState(true);
   const [state, setState] = useState<T | undefined>(() =>
     initializer.current(key)
   );
- 
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
-    console.log('hofe')
-    if (typeof window !== "undefined") {
-      setState(initializer.current(key));
-    }
+    setState(initializer.current(key));
   }, [key]);
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -88,5 +86,5 @@ export const useLocalStorage = <T>(
     }
   }, [key, setState]);
 
-  return [state, set, remove,isLoading];
+  return [state, set, remove, isLoading];
 };

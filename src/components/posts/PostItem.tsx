@@ -8,7 +8,7 @@ const PostItem = ({ post }) => {
   const { tags } = post.metadata;
 
   //tag表示の優先順位
-  const tagsOrder = ["next", "react", "javascript", "algorithm"];
+  const tagsOrder = ["next", "react",'react native','nodo.js', "javascript", "algorithm"];
   const displayTagNum = tagsOrder.findIndex((tagName) =>
     tags.some((tag) => tagName == tag.sys.id)
   );

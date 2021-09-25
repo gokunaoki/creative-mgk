@@ -18,6 +18,16 @@ const TagsList = ({ tags = null }) => {
       color: "white",
     },
     {
+      name: "React Native",
+      backgroundColor: "#aab6fe",
+      color: 'black',
+    },
+    {
+      name: "Node.js",
+      backgroundColor: "#4db6ac",
+      color: "white",
+    },
+    {
       name: "JavaScript",
       backgroundColor: "#ecdb54",
       color: "black",

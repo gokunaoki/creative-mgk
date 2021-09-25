@@ -7,7 +7,6 @@ import { useState, useEffect } from "react";
 import useScroll from "../../../hooks/scroll-loading";
 import { useRouter } from "next/router";
 
-
 const CategoryPage = (props) => {
   const router = useRouter();
   const [posts, setPosts] = useState(props.posts);
@@ -69,7 +68,14 @@ export async function getStaticProps(context) {
 }
 
 export function getStaticPaths() {
-  const tags = ["react", "next", "javascript", "algorithm"];
+  const tags = [
+    "react",
+    "next",
+    "react native",
+    "node.js",
+    "javascript",
+    "algorithm",
+  ];
   const paths = tags.map((item) => ({ params: { tag: item } }));
 
   return {
@@ -81,5 +87,5 @@ export function getStaticPaths() {
 const TagName = styled.p`
   font-size: 2rem;
   margin-bottom: 30px;
-  color:${({theme})=>theme.text};
+  color: ${({ theme }) => theme.text};
 `;

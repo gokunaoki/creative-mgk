@@ -43,7 +43,7 @@ const CategoryPage = (props) => {
     <>
       <Head
         title={`${router.query.tag} | Creative MGK`}
-        description="フロントエンドに関するプログラミングやエンジニアとしての実務経験を発信します"
+        description="フロントエンドに関する知識やエンジニアとしての実務経験を発信します"
         url={`https://creativemgk.com/${router.query.tag}`}
         image="https://images.ctfassets.net/68ugjdsn6k9b/3JUtW9MUASCvw84IIwM8kS/b5e2a84ef850f09d5fe5162c22d601ad/Abstract_5.png?h=250"
       />

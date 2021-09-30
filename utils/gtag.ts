@@ -8,7 +8,6 @@ export const pageview = (url: string) => {
 
 export const event = ({ action, category, label, value }) => {
   if (!GA_TRACKING_ID) return;
-
   window.gtag("event", action, {
     event_category: category,
     event_label: JSON.stringify(label),

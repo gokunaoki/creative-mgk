@@ -13,7 +13,7 @@ const Profile: React.FC = () => {
 
       <Desc>
         <DescP> Frontend Engineer in Tokyo</DescP>
-        <DescP>新卒2年目の2021年4月に未経験からエンジニアに転職。</DescP>
+        <DescP>新卒2年目の2021年4月にエンジニア転職。</DescP>
         <DescP>
           主にフロントエンドに関して発信しています。
         </DescP>

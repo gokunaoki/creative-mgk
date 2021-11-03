@@ -25,7 +25,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events]);
 
   return (
-    
     <Layout>
       <Component {...pageProps} />
     </Layout>

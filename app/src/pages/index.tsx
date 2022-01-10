@@ -1,5 +1,5 @@
 import Head from "../components/head";
-import PostsList from "../components/posts/PostsList";
+import PostsList from "@/components/posts/PostsList";
 import { getAllPosts } from "../../lib/index";
 import { useState } from "react";
 import useScroll from "../hooks/scroll-loading";

@@ -40,10 +40,10 @@ export default MainNav;
 
 const Navigation = styled.nav`
   width: 100%;
-  height: 50px;
+  height: 80px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
   background:${({theme})=>theme.background};
-  
+
   position: fixed;
   top: 0;
   z-index: 100;
@@ -53,7 +53,7 @@ const Wrapper = styled.div`
   width: 90%;
   height: 100%;
   max-width: 1000px;
-  
+
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -98,7 +98,7 @@ const NavList = styled.ul`
   display: flex;
   align-items: center;
   justify-content: center;
- 
+
   @media only screen and ${breakpoint.device.sm} {
     flex-shrink: 0;
   }

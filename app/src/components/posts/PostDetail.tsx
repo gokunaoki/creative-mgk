@@ -94,11 +94,13 @@ const StyledMark = styled.div`
   letter-spacing: 1px;
 
   & > h3 {
+    color:${({theme})=>theme.postHead};
     font-size: 3rem;
     margin-bottom: 28px;
     margin-top: 58px;
   }
   & > h4 {
+    color:${({theme})=>theme.postHead};
     font-size: 2.4rem;
     margin-bottom: 24px;
     margin-top: 48px;
